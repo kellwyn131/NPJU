@@ -3,13 +3,12 @@ package br.com.uniamerica.npju.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "tb_controles",schema = "NPJU")
-public class Controle extends AbstractEntity {
+public class ControleEstagiario extends AbstractEntity {
+
     @Getter @Setter
     @Column(name = "atendimentos_contemplados",nullable = false)
     private Integer atendimentos_contemplados;
@@ -58,5 +57,17 @@ public class Controle extends AbstractEntity {
     @Getter @Setter
     @Column(name = "estudos_realizados",nullable = false)
     private Integer estudos_realizados;
+    @Getter @Setter
+    @Enumerated(EnumType.STRING)
+    @Column(name = "abatimento_estagio",nullable = false)
+    private AbatimentoEstagio abatimento_estagio; // COM CAMPO PARA HORAS, IMPLEMENTAR FUTURAMENTE
+    public ControleEstagiario(Integer atendimentos_contemplados, Integer atendimentos_nao_contemplados, Integer atendimentos_convertidos) {
+        this.atendimentos_contemplados = atendimentos_contemplados;
+        this.atendimentos_nao_contemplados = atendimentos_nao_contemplados;
+        this.atendimentos_convertidos = atendimentos_convertidos;
+    }
 
+    public ControleEstagiario() {
+
+    }
 }

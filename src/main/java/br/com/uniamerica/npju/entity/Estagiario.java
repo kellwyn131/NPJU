@@ -28,4 +28,12 @@ public class Estagiario extends AbstractEntity{
     @Column(name = "escala",length = 100,nullable = false)
     private String escala;
 
+    public Estagiario(String nome, String telefone, String email) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
+    }
+
+    public Estagiario() {
+    }
 }
