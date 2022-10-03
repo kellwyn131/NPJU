@@ -12,7 +12,8 @@ public class Processo extends AbstractEntity{
     @Getter @Setter
     @Enumerated(EnumType.STRING)
     private Hipossuficiencia hipossuficiencia;
-    //???estagiarios responsáveis, perguntar sobre esse item mais tarde
+    @Getter @Setter
+    private Estagiario estagiario;
     @Getter @Setter
     @Enumerated(EnumType.STRING)
     private CartaConvite cartaConvite; // é um documento em que um residente legal no país assume a responsabilidade pela chegada e hospedagem de uma pessoa.
@@ -34,7 +35,7 @@ public class Processo extends AbstractEntity{
     private Professores professores; // ??? pegar nomes
     @Getter @Setter
     @Enumerated(EnumType.STRING)
-    private AudienciaMarcada audienciaMarcada;
+    private AudienciaMarcada audienciaMarcada;  // campo para data no MARCADA
     private boolean clienteCienteDaAudiencia;
     //campo para descrição
     private boolean outraParteIntimada;
