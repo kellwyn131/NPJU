@@ -5,68 +5,68 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-//@Entity
-//@Table(name = "tb_controles",schema = "npju")
+@Entity
+@Table(name = "tb_controles",schema = "npju")
 public class ControleEstagiario extends AbstractEntity {
-
     @Getter @Setter
-    @Column(name = "atendimentosContemplados",nullable = false)
-    private Integer atendimentosContemplados;
+    @JoinColumn(name = "id_estagiario", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Administrador estagiario;
     @Getter @Setter
-    @Column(name = "atendimentosNaoContemplados",nullable = false)
-    private Integer atendimentosNaoContemplados;
+    @Column(name = "atendimentos-contemplados",nullable = false)
+    private int atendimentosContemplados;
     @Getter @Setter
-    @Column(name = "atendimentosConvertidos",nullable = false)
-    private Integer atendimentosConvertidos;
+    @Column(name = "atendimentos_nao_contemplados",nullable = false)
+    private int atendimentosNaoContemplados;
     @Getter @Setter
-    @Column(name = "mediacoesRealizadas",nullable = false)
-    private Integer mediacoesRealizadas;
+    @Column(name = "atendimentos_convertidos",nullable = false)
+    private int atendimentosConvertidos;
     @Getter @Setter
-    @Column(name = "conciliacoesRealizadas",nullable = false)
-    private Integer conciliacoesRealizadas;
+    @Column(name = "mediacoes_realizadas",nullable = false)
+    private int mediacoesRealizadas;
     @Getter @Setter
-    @Column(name = "procuracoesRealizadas",nullable = false)
-    private Integer procuracoesRealizadas;
+    @Column(name = "conciliacoes_realizadas",nullable = false)
+    private int conciliacoesRealizadas;
     @Getter @Setter
-    @Column(name = "declaracoesHipossuficiencia",nullable = false)
-    private Integer declaracoesHipossuficiencia;
+    @Column(name = "procuracoes_realizadas",nullable = false)
+    private int procuracoesRealizadas;
     @Getter @Setter
-    @Column(name = "cartasConviteRealizadas",nullable = false)
-    private Integer cartasConviteRealizadas;
+    @Column(name = "declaracoes_hipossuficiencia",nullable = false)
+    private int declaracoesHipossuficiencia;
     @Getter @Setter
-    @Column(name = "termosCompromissoRealizados",nullable = false)
-    private Integer termosCompromissoRealizados;
+    @Column(name = "cartas_convite_realizadas",nullable = false)
+    private int cartasConviteRealizadas;
     @Getter @Setter
-    @Column(name = "atasMediacao",nullable = false)
-    private Integer atasMediacao;
+    @Column(name = "termos_compromisso_realizados",nullable = false)
+    private int termosCompromissoRealizados;
     @Getter @Setter
-    @Column(name = "pecasPrincipais",nullable = false)
-    private Integer pecasPrincipais;
+    @Column(name = "atas_mediacao",nullable = false)
+    private int atasMediacao;
     @Getter @Setter
-    @Column(name = "pecasProsseguimento",nullable = false)
-    private Integer pecasProsseguimento;
+    @Column(name = "pecas_principais",nullable = false)
+    private int pecasPrincipais;
     @Getter @Setter
-    @Column(name = "relatoriosElaborados",nullable = false)
-    private Integer relatoriosElaborados;
+    @Column(name = "pecas_prosseguimento",nullable = false)
+    private int pecasProsseguimento;
     @Getter @Setter
-    @Column(name = "casosBaixados",nullable = false)
-    private Integer casosBaixados;
+    @Column(name = "relatorios_elaborados",nullable = false)
+    private int relatoriosElaborados;
     @Getter @Setter
-    @Column(name = "audienciasAssistidas",nullable = false)
-    private Integer audienciasAssistidas;
+    @Column(name = "casos_baixados",nullable = false)
+    private int casosBaixados;
     @Getter @Setter
-    @Column(name = "estudosRealizados",nullable = false)
-    private Integer estudosRealizados;
+    @Column(name = "audiencias_assistidas",nullable = false)
+    private int audienciasAssistidas;
+    @Getter @Setter
+    @Column(name = "estudos_realizados",nullable = false)
+    private String estudosRealizados;
     @Getter @Setter
     @Enumerated(EnumType.STRING)
-    @Column(name = "abatimentoEstagio",nullable = false)
+    @Column(name = "abatimento_estagio",nullable = false)
     private AbatimentoEstagio abatimentoEstagio; // COM CAMPO PARA HORAS, IMPLEMENTAR FUTURAMENTE
-    public ControleEstagiario(int atendimentosContemplados, int atendimentosNaoContemplados, int atendimentosConvertidos) {
-        this.atendimentosContemplados = atendimentosContemplados;
-        this.atendimentosNaoContemplados = atendimentosNaoContemplados;
-        this.atendimentosConvertidos = atendimentosConvertidos;
-    }
+    @Getter @Setter
+    @Column(name = "observacao")
+    private String observacao;
 
-    public ControleEstagiario() {
-    }
+    //metodo para comportamento de gerar automaticamente a quantidade ex: de atendimentos
 }

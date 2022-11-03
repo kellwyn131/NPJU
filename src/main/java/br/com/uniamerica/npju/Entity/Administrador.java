@@ -5,9 +5,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-//@Entity
-//@Table(name = "tb_estagiarios",schema = "npju")
-public class Estagiario extends AbstractEntity{
+@Entity
+@Table(name = "tb_administradores",schema = "npju")
+public class Administrador extends AbstractEntity{
     @Getter @Setter
     @Column(name = "nome",length = 25,nullable = false)
     private String nome;
@@ -27,13 +27,11 @@ public class Estagiario extends AbstractEntity{
     @Getter @Setter
     @Column(name = "escala",length = 100,nullable = false)
     private String escala;
+    @Getter @Setter
+    @Enumerated(EnumType.STRING)
+    @Column(name = "grupo", nullable = false)
+    private Grupo grupo;
 
-    public Estagiario(String nome, String telefone, String email) {
-        this.nome = nome;
-        this.telefone = telefone;
-        this.email = email;
-    }
-
-    public Estagiario() {
+    public Administrador() {
     }
 }
