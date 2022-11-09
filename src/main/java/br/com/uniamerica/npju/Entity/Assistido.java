@@ -13,6 +13,7 @@ public class Assistido extends AbstractEntity {
     private String nome;
     @Getter @Setter
     @Enumerated(EnumType.STRING)
+    @Column(name = "registro_nacional")
     private RegistroNacional registroNacional;
     @Getter @Setter
     @Column(name = "cpf", nullable = false, unique = true, length = 11)
@@ -26,6 +27,7 @@ public class Assistido extends AbstractEntity {
     private Endereco endereco;
     @Getter @Setter
     @Enumerated(EnumType.STRING)
+    @Column(name = "estado_civil", nullable = false)
     private EstadoCivil estadoCivil;
     @Getter @Setter
     @Column(name = "uniao_estavel", nullable = false)

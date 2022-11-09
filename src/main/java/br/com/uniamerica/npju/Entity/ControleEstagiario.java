@@ -15,7 +15,6 @@ public class ControleEstagiario extends AbstractEntity {
     @Getter @Setter
     @JoinColumn(name = "id_estagiario", nullable = false)
     @OneToOne(fetch = FetchType.EAGER)
-    //@JsonIgnore
     private Adm estagiario;
     @Getter @Setter
     @Column(name = "atendimentos_contemplados",nullable = false)

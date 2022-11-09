@@ -23,6 +23,7 @@ public class Processo extends AbstractEntity{
 
     @Getter @Setter
     @Enumerated(EnumType.STRING)
+    @Column(name="hipossuficiencia")
     private Hipossuficiencia hipossuficiencia;
 
     @Getter @Setter
@@ -33,13 +34,16 @@ public class Processo extends AbstractEntity{
 
     @Getter @Setter
     @Enumerated(EnumType.STRING)
+    @Column(name ="carta_convite")
     private CartaConvite cartaConvite; // é um documento em que um residente legal no país assume a responsabilidade pela chegada e hospedagem de uma pessoa.
 
     @Getter @Setter
     @Enumerated(EnumType.STRING)
+    @Column(name="mediacao")
     private Mediacao mediacao; //???demandante quer a opção MARCADA com data, como fazer ? não será mais enum?
     @Getter @Setter
     @Enumerated(EnumType.STRING)
+    @Column(name="encaminhado_para_protocolo")
     private EncaminhadoParaProtocolo encaminhadoParaProtocolo;
     @Getter @Setter
     @Column(name = "processo_medicao", length = 255)
@@ -52,7 +56,8 @@ public class Processo extends AbstractEntity{
     private boolean procuracao;
     @Getter @Setter
     @Enumerated(EnumType.STRING)
-    private PeçaInicial peçaInicial;
+    @Column(name = "peca_inicial")
+    private PecaInicial pecaInicial;
     @Getter @Setter
     @Column(name = "juizo", length = 255)
     private String juizo;
@@ -63,6 +68,7 @@ public class Processo extends AbstractEntity{
     private Adm professor;
     @Getter @Setter
     @Enumerated(EnumType.STRING)
+    @Column(name="audiencia_marcada")
     private AudienciaMarcada audienciaMarcada;  // campo para data no MARCADA
     @Getter @Setter
     @Column(name ="ciente_da_audiencia")
@@ -78,15 +84,19 @@ public class Processo extends AbstractEntity{
     private LocalDateTime ultimoAtendimento;
     @Getter @Setter
     @Enumerated(EnumType.STRING)
+    @Column(name="sentenca")
     private Sentenca sentenca;
     @Getter @Setter
     @Enumerated(EnumType.STRING)
+    @Column(name ="recurso")
     private RecursoLiquidacaoExecucao recurso;
     @Getter @Setter
     @Enumerated(EnumType.STRING)
+    @Column(name ="liquidacao")
     private RecursoLiquidacaoExecucao liquidacao;
     @Getter @Setter
     @Enumerated(EnumType.STRING)
+    @Column(name= "execucao")
     private RecursoLiquidacaoExecucao Execucao;
 
     //para arquivamento - com campo para a data - para indicar que o caso deve ir para a pasta de arquivo. casos que já foram atendidos ou não

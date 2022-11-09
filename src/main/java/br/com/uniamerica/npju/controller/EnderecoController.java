@@ -4,6 +4,7 @@ import br.com.uniamerica.npju.Entity.Endereco;
 import br.com.uniamerica.npju.repository.EnderecoRepository;
 import br.com.uniamerica.npju.service.EnderecoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -39,9 +40,13 @@ public class EnderecoController {
     }*/
 
     /*@GetMapping("/filtro")
+    public ResponseEntity<List<Endereco>> findAll(@RequestParam("nome")String nome){
+        return ResponseEntity.ok().body(this.enderecoRepository.findAll());
+    }*/
+    @GetMapping("/filtro")
     public List<Endereco> findEnderecoByNome(@RequestParam("nome")String nome){
         return ResponseEntity.ok().body(this.enderecoRepository.findByNome(nome)).getBody();
-    }*/
+    }
 
     @PostMapping
     public ResponseEntity<?> cadastrar(@RequestBody final Endereco endereco) {   //quando não sabe o que vai retornar

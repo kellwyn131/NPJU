@@ -9,25 +9,25 @@ import javax.persistence.*;
 @Table(name = "tb_administradores",schema = "npju")
 public class Adm extends AbstractEntity{
     @Getter @Setter
-    @Column(name = "nome",length = 25,nullable = false)
+    @Column(name = "nome",length = 255,nullable = false)
     private String nome;
     @Getter @Setter
     @Enumerated(EnumType.STRING)
     @Column(name = "periodo_id",nullable = false)
     private Periodo periodo;
     @Getter @Setter
-    @Column(name = "semestre",length = 10,nullable = false)
+    @Column(name = "semestre",length = 255,nullable = false)
     private String semestre;
     @Getter @Setter
-    @Column(name = "telefone",length = 15)
+    @Column(name = "telefone",length = 255, nullable = false)
     private String telefone;
     @Getter @Setter
-    @Column(name = "email",length = 25)
+    @Column(name = "email",length = 255, nullable = false)
     private String email;
     @Getter @Setter
-    @Column(name = "escala",length = 100,nullable = false)
+    @Column(name = "escala",length = 255,nullable = false)
     private String escala;
-   @Getter @Setter
+    @Getter @Setter
     @Enumerated(EnumType.STRING)
     @Column(name = "grupo_id", nullable = false)
     private Grupo grupo;
