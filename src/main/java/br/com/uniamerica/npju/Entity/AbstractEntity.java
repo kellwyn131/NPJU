@@ -4,14 +4,13 @@ package br.com.uniamerica.npju.Entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 @MappedSuperclass
 public abstract class AbstractEntity {
     @Id
     @Getter @Setter
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
     @Getter @Setter

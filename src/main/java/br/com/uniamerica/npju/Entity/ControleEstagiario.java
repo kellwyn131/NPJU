@@ -5,58 +5,63 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 @Entity
 @Table(name = "tb_controles",schema = "npju")
 public class ControleEstagiario extends AbstractEntity {
     @Getter @Setter
     @JoinColumn(name = "id_estagiario", nullable = false)
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Administrador estagiario;
+    @OneToOne(fetch = FetchType.EAGER)
+    //@JsonIgnore
+    private Adm estagiario;
     @Getter @Setter
-    @Column(name = "atendimentos-contemplados",nullable = false)
-    private int atendimentosContemplados;
+    @Column(name = "atendimentos_contemplados",nullable = false)
+    private Long atendimentosContemplados;
     @Getter @Setter
     @Column(name = "atendimentos_nao_contemplados",nullable = false)
-    private int atendimentosNaoContemplados;
+    private Long atendimentosNaoContemplados;
     @Getter @Setter
     @Column(name = "atendimentos_convertidos",nullable = false)
-    private int atendimentosConvertidos;
+    private Long atendimentosConvertidos;
     @Getter @Setter
     @Column(name = "mediacoes_realizadas",nullable = false)
-    private int mediacoesRealizadas;
+    private Long mediacoesRealizadas;
     @Getter @Setter
     @Column(name = "conciliacoes_realizadas",nullable = false)
-    private int conciliacoesRealizadas;
+    private Long conciliacoesRealizadas;
     @Getter @Setter
     @Column(name = "procuracoes_realizadas",nullable = false)
-    private int procuracoesRealizadas;
+    private Long procuracoesRealizadas;
     @Getter @Setter
     @Column(name = "declaracoes_hipossuficiencia",nullable = false)
-    private int declaracoesHipossuficiencia;
+    private Long declaracoesHipossuficiencia;
     @Getter @Setter
     @Column(name = "cartas_convite_realizadas",nullable = false)
-    private int cartasConviteRealizadas;
+    private Long cartasConviteRealizadas;
     @Getter @Setter
     @Column(name = "termos_compromisso_realizados",nullable = false)
-    private int termosCompromissoRealizados;
+    private Long termosCompromissoRealizados;
     @Getter @Setter
     @Column(name = "atas_mediacao",nullable = false)
-    private int atasMediacao;
+    private Long atasMediacao;
     @Getter @Setter
     @Column(name = "pecas_principais",nullable = false)
-    private int pecasPrincipais;
+    private Long pecasPrincipais;
     @Getter @Setter
     @Column(name = "pecas_prosseguimento",nullable = false)
-    private int pecasProsseguimento;
+    private Long pecasProsseguimento;
     @Getter @Setter
     @Column(name = "relatorios_elaborados",nullable = false)
-    private int relatoriosElaborados;
+    private Long relatoriosElaborados;
     @Getter @Setter
     @Column(name = "casos_baixados",nullable = false)
-    private int casosBaixados;
+    private Long casosBaixados;
     @Getter @Setter
     @Column(name = "audiencias_assistidas",nullable = false)
-    private int audienciasAssistidas;
+    private Long audienciasAssistidas;
     @Getter @Setter
     @Column(name = "estudos_realizados",nullable = false)
     private String estudosRealizados;
@@ -69,4 +74,7 @@ public class ControleEstagiario extends AbstractEntity {
     private String observacao;
 
     //metodo para comportamento de gerar automaticamente a quantidade ex: de atendimentos
+    public ControleEstagiario(){
+
+    }
 }

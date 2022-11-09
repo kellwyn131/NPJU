@@ -2,10 +2,8 @@ package br.com.uniamerica.npju.Entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.LazyToOne;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "tb_assistido", schema = "npju")
@@ -24,7 +22,7 @@ public class Assistido extends AbstractEntity {
     private String telefone;
     @Getter @Setter
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "endereco", nullable = false)
+    @JoinColumn(name = "id_endereco", nullable = false)
     private Endereco endereco;
     @Getter @Setter
     @Enumerated(EnumType.STRING)

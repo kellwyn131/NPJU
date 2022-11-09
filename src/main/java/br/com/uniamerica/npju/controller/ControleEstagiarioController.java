@@ -1,8 +1,8 @@
 package br.com.uniamerica.npju.controller;
 
-import br.com.uniamerica.npju.Entity.Assistido;
-import br.com.uniamerica.npju.repository.AssistidoRepository;
-import br.com.uniamerica.npju.service.AssistidoService;
+import br.com.uniamerica.npju.Entity.ControleEstagiario;
+import br.com.uniamerica.npju.repository.ControleEstagiarioRepository;
+import br.com.uniamerica.npju.service.ControleEstagiarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -11,38 +11,38 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/api/assistido")
-public class AssistidoController {
+@RequestMapping("/api/controleEstagiario")
+public class ControleEstagiarioController {
 
     @Autowired
-    public AssistidoRepository assistidoRepository;
+    public ControleEstagiarioRepository controleEstagiarioRepository;
 
     @Autowired
-    public AssistidoService assistidoService;
+    public ControleEstagiarioService controleEstagiarioService;
 
     @GetMapping
-    public ResponseEntity<List<Assistido>> findByAtivoTrue(){
-        return ResponseEntity.ok().body(this.assistidoRepository.findByAtivoTrue());
+    public ResponseEntity<List<ControleEstagiario>> findByAtivoTrue(){
+        return ResponseEntity.ok().body(this.controleEstagiarioRepository.findByAtivoTrue());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id")Long id){
-        return ResponseEntity.ok().body(this.assistidoRepository.findById(id));
+        return ResponseEntity.ok().body(this.controleEstagiarioRepository.findById(id));
     }
 
     @PostMapping
-    public ResponseEntity<?> cadastrar(@RequestBody final Assistido assistido) {   //quando não sabe o que vai retornar
-        this.assistidoRepository.save(assistido);
+    public ResponseEntity<?> cadastrar(@RequestBody final ControleEstagiario controleEstagiario) {   //quando não sabe o que vai retornar
+        this.controleEstagiarioRepository.save(controleEstagiario);
         return ResponseEntity.ok().body("Registro cadastrado com sucesso");
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<?> atualizar(
             @PathVariable final Long id,
-            @RequestBody final Assistido assistido
+            @RequestBody final ControleEstagiario controleEstagiario
     ) {
         try{
-            this.assistidoService.atualizar(id, assistido);
+            this.controleEstagiarioService.atualizar(id, controleEstagiario);
         }
         catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -53,10 +53,10 @@ public class AssistidoController {
     @DeleteMapping("/{id}")
     public ResponseEntity<?> excluir(
             @PathVariable final Long id,
-            @RequestBody final Assistido assistido
+            @RequestBody final ControleEstagiario controleEstagiario
     ) {
         try {
-            this.assistidoService.excluir(id, assistido);
+            this.controleEstagiarioService.excluir(id, controleEstagiario);
         }
         catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
